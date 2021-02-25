@@ -15,7 +15,6 @@ export const BillSchema = new Schema({
   due_date: {
     type: Date,
     required: true,
-    min: Date.now()
   },
   paid_at: {
     type: Date,
@@ -33,7 +32,10 @@ export const BillSchema = new Schema({
 export type BillInputDTO = {
   price: number,
   name: string,
-  due_date: Date
+  due_date: Date,
+  paid_at?: Date,
+  price_with_intereset?: number,
+  overdue_days?: number
 }
 
 export type BillUpdateDTO = {
