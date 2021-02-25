@@ -20,16 +20,29 @@ export const BillSchema = new Schema({
   paid_at: {
     type: Date,
   },
+  price_with_interest: {
+    type: Number,
+    min: 0.01
+  },
   overdue_days: {
     type: Number
   }
-
 })
+
 
 export type BillInputDTO = {
   price: number,
   name: string,
   due_date: Date
+}
+
+export type BillUpdateDTO = {
+  price?: number,
+  name?: string,
+  due_date?: Date,
+  paid_at?: Date,
+  price_with_intereset?: number,
+  overdue_days?: number
 }
 
 export const BillModel = mongoose.model('bills', BillSchema);
