@@ -34,7 +34,7 @@ export type BillInputDTO = {
   name: string,
   due_date: string,
   paid_at?: string,
-  price_with_intereset?: number,
+  price_with_interest?: number | null,
   overdue_days?: number
 }
 
@@ -43,7 +43,7 @@ export type BillUpdateDTO = {
   name: string,
   due_date: string,
   paid_at?: string,
-  price_with_intereset?: number,
+  price_with_interest?: number | null,
   overdue_days?: number,
   id?: string
 }
