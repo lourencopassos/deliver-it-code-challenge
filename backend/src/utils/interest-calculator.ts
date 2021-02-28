@@ -21,6 +21,7 @@ export const interesetCalculatorFromGetBills = (bills: BillUpdateDTO[]) => {
 
     if (!isBillExpired) {
       bill.overdue_days = 0
+      bill.price_with_interest = null;
       billsArray.push(bill)
     }
 
@@ -80,6 +81,8 @@ export const interesetCalculatorToAddBill = (bill: BillInputDTO) => {
 
 
   if (!isBillExpired) {
+    bill.overdue_days = 0
+    bill.price_with_interest = null;
     return bill
   }
 
