@@ -3,11 +3,11 @@ import { BaseDatabase } from "./base-database";
 
 export class BillDatabase extends BaseDatabase {
 
-  addBill = async (name: string, price: number, due_date: Date, paid_at?: Date, price_with_interest?: number, overdue_days?: number) => {
+  addBill = async (name: string, original_price: number, due_date: Date, paid_at?: Date, price_with_interest?: number, overdue_days?: number) => {
     try {
       await this.getConnection()
       await new BillModel({
-        name, price, due_date, paid_at, price_with_interest, overdue_days
+        name, original_price, due_date, paid_at, price_with_interest, overdue_days
       }).save()
     } catch (error) {
       throw new Error(error.message)
