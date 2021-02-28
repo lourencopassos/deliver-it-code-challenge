@@ -7,9 +7,9 @@ export const BillSchema = new Schema({
     required: 'Bill name required. At least 10 characters.',
     min: 10
   },
-  price: {
+  original_price: {
     type: Number,
-    required: 'Bill price required',
+    required: 'Original price required',
     min: 0.01,
   },
   due_date: {
@@ -30,21 +30,22 @@ export const BillSchema = new Schema({
 
 
 export type BillInputDTO = {
-  price: number,
+  original_price: number,
   name: string,
-  due_date: Date,
-  paid_at?: Date,
+  due_date: string,
+  paid_at?: string,
   price_with_intereset?: number,
   overdue_days?: number
 }
 
 export type BillUpdateDTO = {
-  price?: number,
-  name?: string,
-  due_date?: Date,
-  paid_at?: Date,
+  original_price: number,
+  name: string,
+  due_date: string,
+  paid_at?: string,
   price_with_intereset?: number,
-  overdue_days?: number
+  overdue_days?: number,
+  id?: string
 }
 
 export const BillModel = mongoose.model('bills', BillSchema);
